@@ -1,0 +1,28 @@
+document link : https://docs.ansible.com/ansible/latest/cli/ansible-vault.html
+
+Ansible Vault encrypts variables and files so you can protect sensitive content such as passwords or keys rather than leaving it visible as plaintext in playbooks or roles.
+To use Ansible Vault you need one or more passwords to encrypt and decrypt content.
+
+
+
+Create a play book "users.yml"
+
+ansible-playbook users.yml
+/*
+go to client machine
+      id jhon
+      userdel -r john
+*/
+
+ansible-vault encrypt users.yml
+ansible-vault view users.yml
+ansible-vault edit users.yml
+ansible-vault decrypt users.yml
+ansible-vault rekey users.yml
+ansible-playbook users.yml
+
+ansible-playbook users.yml  --ask-vault-pass
+
+ansible-playbook users.yml  --vault-password-file  /root/ansible/vault-passwd
+
+
